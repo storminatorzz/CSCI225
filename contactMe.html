@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title>CSCI225 Contact Me - caleb storm</title>
+        <h1>Contact Me </h1> <br> 
+    </head>
+    <body>
+        <p>Here is a song I like as a little treat :D</p>
+        <!--embed video -->
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ijOWsZgmLhg?si=gHVV1FrFfXXywnJh&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"  allowfullscreen></iframe>
+        <br> <br> 
+        <!--form with username, first+last names, email, site recommend radio, 
+        favorite website selection box, rating range element, additional comment textbox, 
+        and submit+ 3+ other elements -->
+        <div class="feedback">
+            <form action="contactMe.php">
+                <h3>Feedback</h3>
+                <p>Name:<input type="text" name="fname" size="16" maxlength="16" placeholder="anonymous" required><input type="text" name="lname" size="16" maxlength="16" placeholder="anonymous" required></p>
+                <p>Email:<input type="email" name="mail" id="email" placeholder="name@domain.com" required></p>
+                <p>Telephone: <input type="tel"  name="phonenumber" placeholder="xxx-xxx-xxxx" pattern="\d{3}-\d{3}-\d{4}"></p>
+                <p>Recommend site?: <input type="radio" name="recommend" id="Yes"><small>Yes </small><input type="radio" name="recommend" id="No"><small>No </small></p>
+                <p>Favorite color?: <input type="color" name="selectcolor" autofocus></p>
+                <p>Favorite website?: <select size="1" name="selectsite" id="selectsite">
+                    <option value="google">Google</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="twitter">Twitter</option>
+                    <option value="time">Time</option>
+                    <option value="other">Other (Enter Below)</option>
+                </select></p>
+                <p>Other favorite website: <input type="text" name="userfavsite" size="30" maxlength="30"></p>
+                <p>Additional comments:<br><textarea name="comment" id="comment" cols="30" rows="20" placeholder="Enter comments here"></textarea></p>
+                <p>Rating: <small>1</small><input type="range" name="rating" id="rating" min="1" max="10"><small>10</small></p>
+                <p><input type="submit" value="submit"></p>
+            </form>
+        </div>
+    </body>
+</html>
