@@ -6,7 +6,12 @@
        </title>
        <meta charset="UTF-8">
        <link rel="stylesheet" href="css/main.css">
-    
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">    
+       <!--Alegreya Sans and ABeeZee-->
+       
     </head>
     <body>
         <!-- comment format for HTML :D -->
@@ -26,7 +31,8 @@
                 
                 <h2 id="assignment_1">Introduction</h2> 
                 
-                <p>Welcome to my webpage for CSCI 255, web development! I am working on a degree in computer science with a concentration in cybersecurity, as well as a minor in digital humanities, a field of social studies exclusively in the digital realm. While most of my free time is spent playing video games with friends, I do also build model kits, particularly ones from the Mobile Suit Gundam franchise, the navigation above has a link to the site i use to track my collection! </p>
+                <div id="content-introduction">
+                <p id="introP">Welcome to my webpage for CSCI 255, web development! I am working on a degree in computer science with a concentration in cybersecurity, as well as a minor in digital humanities, a field of social studies exclusively in the digital realm. While most of my free time is spent playing video games with friends, I do also build model kits, particularly ones from the Mobile Suit Gundam franchise, the navigation above has a link to the site i use to track my collection! </p>
                 <div id="introPart1">
                 <p> <img id="coreblock" src="img/coreblockAssignment.gif" alt="Mobile Suit Gundam coreblock fighter animation"></p>
                 <p><small>Mobile Suit Gundam coreblock fighter animation</small></p>
@@ -50,11 +56,13 @@
                 </video>
                 </div>  
                 <br> 
+                </div>
 
             </section>
 
             <section id="portfolioBlock"> <!-- portfolio -->  
                 <h2>Portfolio</h2> 
+                <div id="content-portfolio">
                 <p>Prior projects</p>
                 <ul><!--bullet point list-->
                     <li>Core Fighter Spinning Model - <a href="#coreblock"> jump to </a>
@@ -64,11 +72,13 @@
                          <ul><li>This project required creation of a text-based user interface, an algorithm for calculating a path between points with some extra situational requirements, as well as data storage and retrieval</li></ul>
                     </li>
                 </ul>
+                </div>
             </section>
 
             <section id="scheduleBlock"> <!-- schedule -->
                 <h2 id="schedule">Schedule</h2> <!-- ctrl+alt+up/down arrow for multiple entry-->
                 <!-- rowspan, header elements, -->
+                <div id="content-schedule">
                 <table border="1" id="scheduleTable">
                     <tr id="scheduleHeader">
                         <td> </td>
@@ -245,11 +255,13 @@
                         <td> </td>
                     </tr>
                 </table>
+                </div>
             </section>
 
             <section id="assignmentBlock">
-            <div > <!-- assignment -->
+            
                 <h2 id="assignment">Assignment</h2>
+            <div id="content-assignment"> <!-- assignment -->
                 <ol> <!--assignment link list-->
                     <li><a href="doc/csci225_assignment1.docx">Assignment 1</a></li>
                     <li><a href="contactMe.html">Contact Me / Feedback</a></li>
@@ -258,8 +270,9 @@
             </section>
             
             <section id="contactInfoBlock">
-            <div >
-                <p id="contactInfo">Contact Information </p>
+            
+                <h2 id="contactInfo">Contact Information </h2>
+            <div id="content-contactInfo"> <!-- contact info -->
                 <address>triggerstorm@yahoo.com</address>
                 <br>
                 <p>Copyright</p>
