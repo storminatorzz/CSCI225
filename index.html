@@ -11,7 +11,7 @@
     <body>
         <!-- comment format for HTML :D -->
         <header> 
-            <nav> <h4>vvv Useful Links vvv</h4> <ul>
+            <nav>  <ul>
                 <li><a href="https://www.usca.edu">USCA</a></li>
                 <li><a href="#assignment">Assignment</a></li>
                 <li><a href="#schedule">Schedule</a></li>
@@ -21,26 +21,39 @@
         </header>
         <!-- main content area -->
         <main>
-            <section> <!-- introduction -->
+            <section id="introductionBlock"> <!-- introduction -->
+
+                
                 <h2 id="assignment_1">Introduction</h2> 
+                
                 <p>Welcome to my webpage for CSCI 255, web development! I am working on a degree in computer science with a concentration in cybersecurity, as well as a minor in digital humanities, a field of social studies exclusively in the digital realm. While most of my free time is spent playing video games with friends, I do also build model kits, particularly ones from the Mobile Suit Gundam franchise, the navigation above has a link to the site i use to track my collection! </p>
+                <div id="introPart1">
                 <p> <img id="coreblock" src="img/coreblockAssignment.gif" alt="Mobile Suit Gundam coreblock fighter animation"></p>
                 <p><small>Mobile Suit Gundam coreblock fighter animation</small></p>
+                </div>
                 <br> 
+
+                <div id="introPart2">
                 <p>Kingdom Hearts II - Dearly Beloved</p>
-                <p><audio controls autoplay>
+                <audio controls autoplay>
                     <source src="audio/DearlyBeloved-KINGDOMHEARTSIIVersion-.mp3" type="audio/mp3">
                 Your browser does not support the audio element. <!-- here in case of incompatoble browser :D -->
-                </audio></p>
+                </audio>
+                </div>
                 <br>
+
+                <div id="introPart3">
                 <p>Gundam 0080 War in the Pocket - Kampfer vs. the NT-1 Alex</p>
                 <video width="320" height="240" controls>
                     <source src="video/Kampfervs.theNT-1Alex(Gundam0080WarinthePocket)-Gaplantfan(1080p).mp4" type="video/mp4">
                 Your browser does not support the video element. 
                 </video>
+                </div>  
                 <br> 
+
             </section>
-            <section> <!-- portfolio -->  
+
+            <section id="portfolioBlock"> <!-- portfolio -->  
                 <h2>Portfolio</h2> 
                 <p>Prior projects</p>
                 <ul><!--bullet point list-->
@@ -52,11 +65,12 @@
                     </li>
                 </ul>
             </section>
-            <section> <!-- schedule -->
+
+            <section id="scheduleBlock"> <!-- schedule -->
                 <h2 id="schedule">Schedule</h2> <!-- ctrl+alt+up/down arrow for multiple entry-->
                 <!-- rowspan, header elements, -->
-                <table border="1">
-                    <tr>
+                <table border="1" id="scheduleTable">
+                    <tr id="scheduleHeader">
                         <td> </td>
                         <td>Monday </td>
                         <td>Tuesday </td>
@@ -232,29 +246,61 @@
                     </tr>
                 </table>
             </section>
+
+            <section id="assignmentBlock">
+            <div > <!-- assignment -->
+                <h2 id="assignment">Assignment</h2>
+                <ol> <!--assignment link list-->
+                    <li><a href="doc/csci225_assignment1.docx">Assignment 1</a></li>
+                    <li><a href="contactMe.html">Contact Me / Feedback</a></li>
+                </ol>
+            </div>
+            </section>
+            
+            <section id="contactInfoBlock">
+            <div >
+                <p id="contactInfo">Contact Information </p>
+                <address>triggerstorm@yahoo.com</address>
+                <br>
+                <p>Copyright</p>
+                <small>Video- &copy;Bandai Namco Filmworks 1989 |</small>
+                <small>Audio- &copy;2023 Disney , &copy;2023 Walt Disney Records</small>
+            </div>
+            </section>
         </main>
 
-        <!-- sidebar -->
-        <aside>
+        
+        <!--<aside>
+        <div id="assignmentBlock">
             <h2 id="assignment">Assignment</h2>
-            <ol> <!--assignment link list-->
+            <ol> 
                 <li><a href="doc/csci225_assignment1.docx">Assignment 1</a></li>
                 <li><a href="contactMe.html">Contact Me / Feedback</a></li>
             </ol>
-        </aside>
+        </div>
+        </aside> -->
 
         <!-- footer -->
         <!-- generally contact info, assorted links, copywrite info, etc -->
          <!--notes: copywrite symbol is &copy;-->
-        <footer>
+      
+     <!--
+         <footer>
+        <div id="contactInfo">
             <p>Contact Information </p>
             <address>triggerstorm@yahoo.com</address>
             <br>
             <p>Copyright</p>
             <small>Video- &copy;Bandai Namco Filmworks 1989 |</small>
             <small>Audio- &copy;2023 Disney , &copy;2023 Walt Disney Records</small>
+        </div>
         </footer>
-
+     -->
+        <footer>
+            <div id="nameBounce">
+                <p>by Caleb Storm, 2026</p>
+            </div>
+        </footer>
 
     </body>
 </html>

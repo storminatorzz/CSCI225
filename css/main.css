@@ -1,4 +1,189 @@
 :root{
+    --color-bg-body: #2c2e54;
+    --color-bg-compliment: #31203f;
+    --color-bg-compliment2: #3b1313;
+    --color-bg-gradient: linear-gradient(90deg, #3b1313 0%, #1a1a37 100%);
 
-    
+    --text-bg-color: #65647d78;
+
+    --text-color: #ffffff;
+    --text-color-small: #ffffffb3;
+    --text-color-compliment: #7773f1;
+    --text-color-compliment2: #ff5269;
+
+    --img-bg-body: url('../img/galaxyBackground.png'); 
+}
+
+#introductionBlock{
+    --pos-top: 5%;
+    --pos-left: 0%;
+    --height: 40%;
+    --width: 25%;
+}
+    #introPart1{
+        position:absolute;
+        left:30vw;
+        width: 15vw;
+    }
+        #introPart1 p{
+            text-align: justify;
+            top: -2em;
+            border-radius: 10px;
+            padding: 0.5em;
+            background-color: var(--text-bg-color);
+        }
+    #introPart2{
+        position:absolute;
+        left:33vw;
+        top: 0vh;
+        width: 10vw;
+    }
+        #introPart2 p{
+            text-align: justify;
+            top: 1em;
+            border-radius: 10px;
+            padding: 0.5em;
+            background-color: var(--text-bg-color);
+        }
+    #introPart3{
+        position:absolute;
+        left:50vw;
+        width: 17vw;
+    }
+        #introPart3 p{
+            top: 1.5em;
+            border-radius: 10px;
+            padding: 0.5em;
+            background-color: var(--text-bg-color);
+        }
+#portfolioBlock{
+    --pos-top: 5%;
+    --pos-left: 75%;
+    --height: 40%;
+    --width: 25%;
+}
+#assignmentBlock{
+    --pos-top: 55%;
+    --pos-left: 0%;
+    --height: 20%;
+    --width: 25%;
+}
+#scheduleBlock{
+    --pos-top: 55%;
+    --pos-left: 75%;
+    --height: 20%;
+    --width: 25%;
+}
+    #scheduleTable{
+        position: fixed;
+        top: 5vh;
+        left: 33vw;
+        width: 35vw;
+        height: 40vh;
+    }
+#contactInfoBlock{
+    --pos-top: 85%;
+    --pos-left: 32%;
+    --height: 10%;
+    --width: 35%;
+}
+
+body{
+    background-color: var(--color-bg-body);
+    background-image: var(--img-bg-body);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height:100vh;
+}
+header{
+    background-color: var(--color-bg-compliment);
+    color: white;
+    width: 100%;
+    height:3em;
+    display:flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+nav li{
+    display: inline-block;
+    margin:  15px;
+    font-size: 1.8em;
+    top:-1em;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a{
+    color: var(--text-color-compliment);
+}
+
+h2{
+    color: var(--text-color-compliment2);
+    font-family: 'Courier New', Courier, monospace;
+    font-style: bold;
+    font-size: 2em;
+}
+
+section{
+    background-color: var(--text-bg-color);
+    color: white;
+    padding: 1em;
+    margin: 1em;
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    top: var(--pos-top);    
+    left: var(--pos-left);
+}
+
+h2+p:first-letter{
+    font-size: 1.5em;
+    color: var(--text-color-compliment2);
+}
+
+small{
+    color: var(--text-color-small);
+}
+
+
+
+
+/*table*/
+table{
+    border: 1px solid var(--text-color-compliment);
+    background-color: var(--color-bg-body);
+}
+td{
+    border: 1px solid var(--text-color-compliment);
+    padding: 0.3em;
+}
+td:first-child,#scheduleHeader{
+    background-color: var(--color-bg-compliment);
+    color: rgb(148, 34, 34);
+}
+
+
+
+footer{
+    background-color: var(--color-bg-compliment);
+    color: white;
+    width: 100%;
+    height:5%;
+    display:flex;
+    justify-content: left;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+}
+footer p{
+    animation:alternate 10s bounce infinite;
+}
+@keyframes bounce {
+    0% { transform: translateX(0vw); }
+    25% { transform: translateX(10vw); }
+    75% { transform: translateX(80vw); }
+    100% { transform: translateX(90vw); }
+     
 }
