@@ -3,35 +3,95 @@
     <head> 
         <title>CSCI225 Contact Me - caleb storm</title>
         <h1>Contact Me </h1> <br> 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     </head>
     <body>
-        <p>Here is a song I like as a little treat :D</p>
+        <div class="container">
+
+            <div class="row">
+            <div class="col">
+            <nav class="col navbar bg-info-subtle" > <h4 class="collapse">vvv Useful Links vvv</h4> <ul class="nav">
+                <li class="nav-item fst-italic"><a class="nav-link" href="https://www.usca.edu">USCA</a></li>
+                <li class="nav-item fst-italic"><a class="nav-link" href="#assignment">Assignment</a></li>
+                <li class="nav-item fst-italic"><a class="nav-link" href="#schedule">Schedule</a></li>
+                <li class="nav-item fst-italic"><a class="nav-link" href="https://www.gunplacentral.com/profile/storminatorzz">Model Kit Collection</a></li>
+            </ul></nav>
+            </div><!--column end-->
+            </div><!--row end-->
+        
+        <div class="row">
+        <div class="col">
         <!--embed video -->
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ijOWsZgmLhg?si=gHVV1FrFfXXywnJh&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"  allowfullscreen></iframe>
+        <iframe class="border border-info-subtle m-2" width="560" height="315" src="https://www.youtube-nocookie.com/embed/ijOWsZgmLhg?si=gHVV1FrFfXXywnJh&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"  allowfullscreen></iframe>
         <br> <br> 
+        </div><!--column end-->
+        <div class="col">
+
         <!--form with username, first+last names, email, site recommend radio, 
         favorite website selection box, rating range element, additional comment textbox, 
         and submit+ 3+ other elements -->
         <div class="feedback">
-            <form action="contactMe.php">
+            <form action="feedback.php">
                 <h2>Feedback</h2>
-                <p>Name:<input type="text" name="fname" size="16" maxlength="16" placeholder="anonymous" required><input type="text" name="lname" size="16" maxlength="16" placeholder="anonymous" required></p>
-                <p>Email:<input type="email" name="mail" id="email" placeholder="name@domain.com" required></p>
-                <p>Telephone: <input type="tel"  name="phonenumber" placeholder="xxx-xxx-xxxx" pattern="\d{3}-\d{3}-\d{4}"></p>
-                <p>Recommend site?: <input type="radio" name="recommend" id="Yes"><small>Yes </small><input type="radio" name="recommend" id="No"><small>No </small></p>
-                <p>Favorite color?: <input type="color" name="selectcolor" autofocus></p>
-                <p>Favorite website?: <select size="1" name="selectsite" id="selectsite">
-                    <option value="google">Google</option>
-                    <option value="facebook">Facebook</option>
-                    <option value="twitter">Twitter</option>
-                    <option value="time">Time</option>
-                    <option value="other">Other (Enter Below)</option>
-                </select></p>
-                <p>Other favorite website: <input type="text" name="userfavsite" size="30" maxlength="30"></p>
-                <p>Additional comments:<br><textarea name="comment" id="comment" cols="30" rows="20" placeholder="Enter comments here"></textarea></p>
-                <p>Rating: <small>1</small><input type="range" name="rating" id="rating" min="1" max="10"><small>10</small></p>
-                <p><input type="submit" value="submit"></p>
+                <p><div class="form-floating mb-3">
+                    <input class="form-control" type="text" name="fname" size="16" maxlength="16" placeholder="anonymous" required> 
+                    <label for="fname">First Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" type="text" name="lname" size="16" maxlength="16" placeholder="anonymous" required>
+                    <label for="lname">Last Name</label>
+                </div></p>
+                <p><div class="form-floating mb-3">
+                    <input class="form-control" type="email" name="mail" id="email" placeholder="name@domain.com" required>
+                    <label for="mail">Email</label>
+                </p></div>
+                <p><div class="form-floating mb-3">
+                    <input class="form-control" type="tel" name="phonenumber" placeholder="xxx-xxx-xxxx" pattern="\d{3}-\d{3}-\d{4}">
+                    <label for="phonenumber">Phone Number</label>
+                </div></p>
+                <p>
+                    Recommend site?: 
+                    <input class="form-check form-check-input form-check-label" type="radio" name="recommend" value="Yes"> <small>Yes </small>
+                    <input class="form-check form-check-input form-check-label" type="radio" name="recommend" value="No">  <small>No </small>
+                </p>
+                <p>
+                    Favorite color?: 
+                    <input class="form-control form-control-color" type="color" name="selectcolor" autofocus>
+                </p>
+                <p>
+                    Favorite website?: 
+                    <select class="form-select" size="1" name="selectsite" id="selectsite">
+                        <option value="google">Google</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="twitter">Twitter</option>
+                        <option value="time">Time</option>
+                        <option value="other">Other (Enter Below)</option>
+                    </select>
+                </p>
+                <p><div class="form-floating mb-3">
+                    <input class="form-control" type="text" name="userfavsite" size="30" maxlength="30">
+                    <label for="userfavsite">Other Favorite Site</label>
+                </div></p>
+                <p><div class="form-floating">
+                    
+                    <br><textarea class="form-control" name="comment" id="comment" cols="30" rows="20" placeholder="Enter comments here"></textarea>
+                    <label for="comment">Additional Comments</label>
+                </div></p>
+                <p>
+                    Rating: <small>1</small>
+                    <input class="form-range" type="range" name="rating" id="rating" min="1" max="10">
+                    <small>10</small>
+                </p>
+                <p>
+                    <input type="submit" value="submit">
+                </p>
             </form>
         </div>
+
+        </div><!--column#2 close-->
+        </div><!--row#1 close-->
+        </div><!--container close-->
+        <!-- framework loaded before body ends-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>
 </html>
