@@ -1,0 +1,153 @@
+<html lang="en">
+    <head>
+        <title>Health Plan</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/healthplan.css">
+    </head> 
+    <body>
+        <h1>Health Plan</h1>
+        <p> 
+            This calculator uses your BMI to determine your health plan and calorie target. 
+            <div id="BMIcalc">
+                <textarea id="weight" placeholder="Weight(kg)"></textarea>
+                <textarea id="height" placeholder="Height(cm)"></textarea>
+                <textarea id="age" placeholder="Age"></textarea> 
+                <select id="gender">
+                    <option value="man">Man</option>
+                    <option value="woman">Woman</option>
+                </select>
+                <button id="calculate">Generate Meal Plan</button>
+                <p id="result"></p>
+                <p id="calorieTarget"></p>
+                <img id="personicon" src="img/personIcon.png" alt="person icon" width="100" height="100"></img>
+                <p></p> <!-- empty line-->
+                <script>
+const foodDatabase = [
+    { name: "Apple (1 medium)", cal: 95 },
+    { name: "Banana (1 medium)", cal: 105 },
+    { name: "Orange (1 medium)", cal: 62 },
+    { name: "Grapes (1 cup)", cal: 104 },
+    { name: "Strawberries (1 cup)", cal: 49 },
+    { name: "Broccoli (1 cup)", cal: 55 },
+    { name: "Carrots (1 cup)", cal: 52 },
+    { name: "Spinach (1 cup)", cal: 7 },
+    { name: "Potato (1 medium)", cal: 161 },
+    { name: "Sweet Potato (1 medium)", cal: 103 },
+    { name: "Avocado (half)", cal: 117 },
+    { name: "Chicken Breast (4oz)", cal: 165 },
+    { name: "Salmon (4oz)", cal: 235 },
+    { name: "Ground Beef 80/20 (4oz)", cal: 287 },
+    { name: "Egg (1 large)", cal: 72 },
+    { name: "Tofu (1/2 cup)", cal: 94 },
+    { name: "Black Beans (1/2 cup)", cal: 114 },
+    { name: "Lentils (1/2 cup)", cal: 115 },
+    { name: "Plain Greek Yogurt (1 cup)", cal: 100 },
+    { name: "Almonds (1 oz)", cal: 164 },
+    { name: "Peanuts (1 oz)", cal: 161 },
+    { name: "Peanut Butter (2 tbsp)", cal: 188 },
+    { name: "Brown Rice (1 cup cooked)", cal: 216 },
+    { name: "White Rice (1 cup cooked)", cal: 205 },
+    { name: "Quinoa (1 cup cooked)", cal: 222 },
+    { name: "Oats (1/2 cup dry)", cal: 150 },
+    { name: "Whole Wheat Bread (1 slice)", cal: 69 },
+    { name: "White Bread (1 slice)", cal: 75 },
+    { name: "Pasta (1 cup cooked)", cal: 220 },
+    { name: "Bagel (1 medium)", cal: 245 },
+    { name: "Flour Tortilla (8 inch)", cal: 144 },
+    { name: "Vanilla Ice Cream (1/2 cup)", cal: 137 },
+    { name: "Chocolate Chip Cookie (1 medium)", cal: 148 },
+    { name: "Potato Chips (1 oz)", cal: 152 },
+    { name: "Pretzels (1 oz)", cal: 108 },
+    { name: "Cheddar Cheese (1 oz)", cal: 113 },
+    { name: "Butter (1 tbsp)", cal: 102 },
+    { name: "Olive Oil (1 tbsp)", cal: 119 },
+    { name: "Whole Milk (1 cup)", cal: 149 },
+    { name: "Almond Milk (1 cup)", cal: 39 },
+    { name: "Orange Juice (1 cup)", cal: 112 },
+    { name: "Cola (12 oz)", cal: 140 },
+    { name: "Black Coffee (8 oz)", cal: 2 },
+    { name: "Bacon (2 slices)", cal: 86 },
+    { name: "Pork Sausage (1 link)", cal: 133 },
+    { name: "Pancakes (2 medium)", cal: 172 },
+    { name: "Waffle (1 large)", cal: 218 },
+    { name: "Honey (1 tbsp)", cal: 64 },
+    { name: "Maple Syrup (1 tbsp)", cal: 52 },
+    { name: "Cheese Pizza (1 slice)", cal: 285 }
+];
+
+                    function getMealPlan() {
+                        console.log("calculate triggered");
+                        let weight = document.getElementById("weight").value;
+                        let height = document.getElementById("height").value;
+                        let age = document.getElementById("age").value;
+                        let gender = document.getElementById("gender").value;
+
+
+
+                        // Calculate BMI
+                        let bmi = weight / ((height / 100) ** 2);
+                        let resultText = "Your BMI is: " + bmi.toFixed(2) + ". | ";
+
+                        // Determine category based on BMI
+                        if (bmi < 18.5) {
+                            resultText += "BMI Category: Underweight";
+                        } else if (bmi >= 18.5 && bmi < 24.9) {
+                            resultText += "BMI Category: Normal";
+                        } else if (bmi >= 25 && bmi < 29.9) {
+                            resultText += "BMI Category: Overweight";
+                        } else {
+                            resultText += "BMI Category: Obese";
+                        }
+
+                        // scale person icon based on height and weight separated by male and female
+                        let personIcon = document.getElementById("personicon");
+                        if (gender === "man") {
+                            personIcon.width = 100 * (weight / 87); //avg male weight 87kg
+                            personIcon.height = 100 * (height / 171); //avg male height 171cm
+                        } else {
+                            personIcon.width = 100 * (weight / 74); //avg female weight 74kg
+                            personIcon.height = 100 * (height / 159); //avg female height 159cm
+                        }
+
+                        // Determine calorie target 
+                        let calorieTarget;
+                        if (gender === "man") { // Assuming "man"
+                            calorieTarget = (weight*10) + (height*6.25) - (age*5) + 5; 
+                        } else {    // Assuming "woman"
+                            calorieTarget = (weight*10) + (height*6.25) - (age*5) - 161; 
+                        }
+                        
+                        // grab a list of food 
+                        // use calorie target as budget, loop random pick through database until the pulled food is less than the budget three times
+                        let calorieBudget = calorieTarget;
+                        let mealPlan = []; 
+                        let mealPlanTable = "<table>";
+                        for (let i = 0; i < 3; i++) {
+                            let randomFood = foodDatabase[Math.floor(Math.random() * foodDatabase.length)];
+                            if (randomFood.cal <= calorieBudget) {
+                                mealPlan.push(randomFood.name + " (" + randomFood.cal + " cal)");
+                                calorieBudget -= randomFood.cal;
+                                mealPlanTable += "<tr><td>" + randomFood.name + "</td><td>" + randomFood.cal + " cal</td></tr>";
+                            }
+                            else {
+                                i++; //expensive foods are bounced 
+                            }
+                            
+                        }
+                        mealPlanTable += "</table>";
+                        // Display the result
+                        document.getElementById("result").innerText = resultText;
+                        document.getElementById("calorieTarget").innerText = "Daily calorie target: " + calorieTarget.toFixed(0) + " calories.";
+                        document.getElementById("mealPlan").innerHTML = "<h3>Suggested Meal Plan:</h3>" + mealPlanTable;
+                    }
+
+                    let bE = document.getElementById("calculate");
+                    bE.addEventListener("click", getMealPlan());
+                </script>
+            </div>
+            <div id="Meal Plan">
+                <p id="mealPlan"></p>
+            </div>
+        </p>
+    </body>
+</html> 
